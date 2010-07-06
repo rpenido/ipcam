@@ -24,15 +24,19 @@ namespace CamViewer
             ConnectionConfigData conf;
             if (File.Exists("config.dat"))
             {
+                Logger.WriteLine("Loading config file...");
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream fs = new FileStream("config.dat", FileMode.Open);
                 fs.Seek(0, SeekOrigin.Begin);
                 try
                 {
                     conf = (ConnectionConfigData)bf.Deserialize(fs);
+                    Logger.WriteLine("Config file loaded !");
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.WriteLine("Error loading config file !");
+                    Logger.WriteError(e);
                     conf = new ConnectionConfigData();
                 }
                 
@@ -40,6 +44,7 @@ namespace CamViewer
             }
             else
             {
+                Logger.WriteLine("Config file not found !");
                 conf = new ConnectionConfigData();
             }
             return conf;
@@ -47,6 +52,7 @@ namespace CamViewer
 
         public void Save()
         {
+            Logger.WriteLine("Saving config file !");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = new FileStream("config.dat", FileMode.Create);
             bf.Serialize(fs, this);	 // "Save" object state

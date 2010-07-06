@@ -12,6 +12,8 @@ namespace CamViewer
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.UnhandledException +=
+        new UnhandledExceptionEventHandler(Logger.CurrentDomain_UnhandledException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

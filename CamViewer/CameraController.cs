@@ -30,27 +30,33 @@ namespace CamViewer
 
         public CameraController(ConnectionConfigData configuration)
         {
+            Logger.WriteLine("Creating camera controller..");
             this._conf = configuration;
+            Logger.WriteLine("Creating work thread..");
             workerThread = new Thread(doWork);
             jobEvent = new AutoResetEvent(false);
             stopEvent = new ManualResetEvent(false);
+            Logger.WriteLine("Starting work thread..");
             workerThread.Start();
         }
         public void Stop()
         {
+            Logger.WriteLine("Stopping work thread..");
             stopEvent.Set();
             workerThread.Join();
+            Logger.WriteLine("Work thread stopped..");
         }
 
 
         private void doWork()
         {
             WebRequest request;
-
+            Logger.WriteLine("Work thread started !");
             while (true)
             {
                 if (jobEvent.WaitOne(500))
                 {
+                    Logger.WriteLine("Work thread: Command received [" + _command + "]");
                     lock (delayLock)
                     {
                         Thread.Sleep(_delay);
@@ -58,10 +64,30 @@ namespace CamViewer
 
                     lock (commandLock)
                     {
-                        request = WebRequest.Create(_command);
+                        try
+                        {
+                            request = WebRequest.Create(_command);
+                        }
+                        catch(Exception e)
+                        {
+                            Logger.WriteLine("Work thread: Error creating WebRequest !");
+                            Logger.WriteError(e);
+                            request = null;
+                        }
                     }
-                    request.Credentials = new NetworkCredential(_conf.UserName, _conf.Password);
-                    request.GetResponse();
+                    if (request != null)
+                    {
+                        request.Credentials = new NetworkCredential(_conf.UserName, _conf.Password);
+                        try
+                        {
+                            request.GetResponse();
+                        }
+                        catch(Exception e)
+                        {
+                            Logger.WriteLine("Work thread: Error getting response !");
+                            Logger.WriteError(e);
+                        }
+                    }
                 }
                 else if (stopEvent.WaitOne(0))
                 {
@@ -75,7 +101,7 @@ namespace CamViewer
         {
             lock (commandLock)
             {
-                _command = command;
+                _command = _conf.Address+command;
                 jobEvent.Set();
             }
         }
@@ -90,7 +116,7 @@ namespace CamViewer
 
         public void MoveUp()
         {
-            setCommand(_conf + "/decoder_control.cgi?command=" + MOVE_UP);
+            setCommand("/decoder_control.cgi?command=" + MOVE_UP);
         }
 
         public void MoveUp(int time)
@@ -102,12 +128,12 @@ namespace CamViewer
 
         public void StopMoveUp()
         {
-            setCommand(_conf + "/decoder_control.cgi?command=" + STOP_MOVE_UP);
+            setCommand("/decoder_control.cgi?command=" + STOP_MOVE_UP);
         }
 
         public void MoveDown()
         {
-            setCommand(_conf + "/decoder_control.cgi?command=" + MOVE_DOWN);
+            setCommand("/decoder_control.cgi?command=" + MOVE_DOWN);
         }
 
         public void MoveDown(int time)
@@ -119,7 +145,7 @@ namespace CamViewer
 
         public void StopMoveDown()
         {
-            setCommand(_conf + "/decoder_control.cgi?command=" + STOP_MOVE_DOWN);
+            setCommand("/decoder_control.cgi?command=" + STOP_MOVE_DOWN);
         }
     }
 }
