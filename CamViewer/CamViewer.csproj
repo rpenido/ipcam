@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CameraController.cs" />
     <Compile Include="ConnectionConfigData.cs" />
     <Compile Include="ConfigConnectionForm.cs">
       <SubType>Form</SubType>
