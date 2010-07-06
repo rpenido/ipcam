@@ -27,7 +27,15 @@ namespace CamViewer
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream fs = new FileStream("config.dat", FileMode.Open);
                 fs.Seek(0, SeekOrigin.Begin);
-                conf = (ConnectionConfigData)bf.Deserialize(fs);
+                try
+                {
+                    conf = (ConnectionConfigData)bf.Deserialize(fs);
+                }
+                catch
+                {
+                    conf = new ConnectionConfigData();
+                }
+                
                 fs.Close();
             }
             else
