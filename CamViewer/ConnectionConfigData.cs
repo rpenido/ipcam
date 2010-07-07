@@ -15,13 +15,14 @@ namespace CamViewer
         public string Password;
         public bool HighResolution;
 
+        private static ConnectionConfigData _conf;
+
         private ConnectionConfigData()
         {
             // Private constructor
         }
-        public static ConnectionConfigData GetConnectionConfigData()
+        public static void CreateConnectionConfigData()
         {
-            ConnectionConfigData conf;
             if (File.Exists("config.dat"))
             {
                 Logger.WriteLine("Loading config file...");
@@ -30,14 +31,14 @@ namespace CamViewer
                 fs.Seek(0, SeekOrigin.Begin);
                 try
                 {
-                    conf = (ConnectionConfigData)bf.Deserialize(fs);
+                    _conf = (ConnectionConfigData)bf.Deserialize(fs);
                     Logger.WriteLine("Config file loaded !");
                 }
                 catch(Exception e)
                 {
                     Logger.WriteLine("Error loading config file !");
                     Logger.WriteError(e);
-                    conf = new ConnectionConfigData();
+                    _conf = new ConnectionConfigData();
                 }
                 
                 fs.Close();
@@ -45,9 +46,8 @@ namespace CamViewer
             else
             {
                 Logger.WriteLine("Config file not found !");
-                conf = new ConnectionConfigData();
+                _conf = new ConnectionConfigData();
             }
-            return conf;
         }
 
         public void Save()
@@ -57,6 +57,16 @@ namespace CamViewer
             FileStream fs = new FileStream("config.dat", FileMode.Create);
             bf.Serialize(fs, this);	 // "Save" object state
             fs.Close();
+        }
+
+        public static ConnectionConfigData Get()
+        {
+            if (_conf == null)
+            {
+                CreateConnectionConfigData();
+            }
+
+            return _conf;
         }
 
     }
