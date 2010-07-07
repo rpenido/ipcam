@@ -13,7 +13,7 @@ namespace CamViewer
 
         static Logger()
         {
-            fs = new FileStream("log.txt", FileMode.Append);
+            fs = new FileStream("log.txt", FileMode.Create);
             sw = new StreamWriter(fs);
             WriteLine("Start session");
         }

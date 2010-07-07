@@ -39,6 +39,7 @@ namespace CamViewer
             Logger.WriteLine("Starting work thread..");
             workerThread.Start();
         }
+
         public void Stop()
         {
             Logger.WriteLine("Stopping work thread..");
@@ -46,7 +47,6 @@ namespace CamViewer
             workerThread.Join();
             Logger.WriteLine("Work thread stopped..");
         }
-
 
         private void doWork()
         {
@@ -67,6 +67,7 @@ namespace CamViewer
                         try
                         {
                             request = WebRequest.Create(_command);
+                            request.Method = "POST";
                         }
                         catch(Exception e)
                         {
@@ -80,7 +81,8 @@ namespace CamViewer
                         request.Credentials = new NetworkCredential(_conf.UserName, _conf.Password);
                         try
                         {
-                            request.GetResponse();
+                            AsyncCallback callBack = new AsyncCallback(responseCallback);
+                            request.BeginGetResponse(callBack, null);
                         }
                         catch(Exception e)
                         {
@@ -96,6 +98,12 @@ namespace CamViewer
 
             }
         }
+
+        static void responseCallback(IAsyncResult ar)
+        {
+            Logger.WriteLine("Work thread: Data sent !");
+        }
+
 
         private void setCommand(string command)
         {

@@ -15,7 +15,7 @@ namespace CamViewer
         public ConfigConnectionForm()
         {
             InitializeComponent();
-            configData = ConnectionConfigData.GetConnectionConfigData();
+            configData = ConnectionConfigData.Get();
             edtAddress.Text = configData.Address;
             edtUsername.Text = configData.UserName;
             edtPassword.Text = configData.Password;

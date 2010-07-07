@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using AForge.Video;
+using AForge.Vision.Motion;
 
 namespace CamViewer
 {
@@ -15,11 +16,12 @@ namespace CamViewer
         MJPEGStream stream;
         ConnectionConfigData conf;
         CameraController camController;
-        
+        MotionDetector motionDetector;
+
         public MainForm()
         {            
             InitializeComponent();
-            conf = ConnectionConfigData.GetConnectionConfigData();
+            conf = ConnectionConfigData.Get();
             camController = new CameraController(conf);
         }
 
@@ -37,14 +39,24 @@ namespace CamViewer
             }
             
             stream = new MJPEGStream(conf.Address+"/videostream.cgi?&resolution="+res);
+            stream.NewFrame += videoSource_NewFrame;
             stream.Login = conf.UserName;
             stream.Password = conf.Password;
             button1.Enabled = false;
             button2.Enabled = true;
+
+            motionDetector = new MotionDetector(new TwoFramesDifferenceDetector(), new MotionAreaHighlighting());
+            
             videoSourcePlayer1.VideoSource = stream;
             stream.Start();
         }
 
+        private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            motionDetector.ProcessFrame(eventArgs.Frame);
+        }
+
+        
         private void button2_Click(object sender, EventArgs e)
         {
             stream.SignalToStop();
@@ -88,9 +100,13 @@ namespace CamViewer
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (stream.Source != null)
-                stream.Stop();
             camController.Stop();
+
+            if (stream != null)
+            {
+                stream.Stop();
+            }
+            
             
         }
     }
