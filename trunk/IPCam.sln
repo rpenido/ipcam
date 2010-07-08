@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C# Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamViewer", "CamViewer\CamViewer.csproj", "{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{6DA5FEB4-8AA3-4A17-97D9-EC427E8D429A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA5FEB4-8AA3-4A17-97D9-EC427E8D429A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA5FEB4-8AA3-4A17-97D9-EC427E8D429A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA5FEB4-8AA3-4A17-97D9-EC427E8D429A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA5FEB4-8AA3-4A17-97D9-EC427E8D429A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
