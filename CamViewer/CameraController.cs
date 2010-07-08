@@ -15,6 +15,12 @@ namespace CamViewer
         const string MOVE_DOWN = "2";
         const string STOP_MOVE_DOWN = "3";
 
+        const string MOVE_LEFT = "4";
+        const string STOP_MOVE_LEFT = "5";
+
+        const string MOVE_RIGHT = "6";
+        const string STOP_MOVE_RIGHT = "7";
+
         private int _delay;
         private Object delayLock = new Object();
 
@@ -67,9 +73,9 @@ namespace CamViewer
                         try
                         {
                             request = WebRequest.Create(_command);
-                            request.Method = "POST";
+
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             Logger.WriteLine("Work thread: Error creating WebRequest !");
                             Logger.WriteError(e);
@@ -82,14 +88,17 @@ namespace CamViewer
                         try
                         {
                             AsyncCallback callBack = new AsyncCallback(responseCallback);
-                            request.BeginGetResponse(callBack, null);
+                            using (request.GetResponse())
+                            {
+                            }
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             Logger.WriteLine("Work thread: Error getting response !");
                             Logger.WriteError(e);
                         }
                     }
+                    
                 }
                 else if (stopEvent.WaitOne(0))
                 {
@@ -155,5 +164,27 @@ namespace CamViewer
         {
             setCommand("/decoder_control.cgi?command=" + STOP_MOVE_DOWN);
         }
+
+        public void MoveRight()
+        {
+            setCommand("/decoder_control.cgi?command=" + MOVE_RIGHT);
+        }
+
+        public void StopMoveRight()
+        {
+            setCommand("/decoder_control.cgi?command=" + STOP_MOVE_RIGHT);
+        }
+
+
+        public void MoveLeft()
+        {
+            setCommand("/decoder_control.cgi?command=" + MOVE_LEFT);
+        }
+
+        public void StopMoveLeft()
+        {
+            setCommand("/decoder_control.cgi?command=" + STOP_MOVE_LEFT);
+        }
+
     }
 }
