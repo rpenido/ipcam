@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -47,16 +48,17 @@
             this.videoSourcePlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.videoSourcePlayer1.Location = new System.Drawing.Point(114, 12);
+            this.videoSourcePlayer1.Location = new System.Drawing.Point(119, 9);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
             this.videoSourcePlayer1.Size = new System.Drawing.Size(640, 480);
             this.videoSourcePlayer1.TabIndex = 0;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
+            this.videoSourcePlayer1.Click += new System.EventHandler(this.videoSourcePlayer1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 41);
+            this.button1.Location = new System.Drawing.Point(6, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -67,7 +69,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(12, 70);
+            this.button2.Location = new System.Drawing.Point(5, 70);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(12, 12);
+            this.btnConfig.Location = new System.Drawing.Point(7, 12);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(75, 23);
             this.btnConfig.TabIndex = 3;
@@ -87,53 +89,57 @@
             // 
             // btnUp
             // 
-            this.btnUp.Location = new System.Drawing.Point(45, 99);
+            this.btnUp.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUp.Image = ((System.Drawing.Image)(resources.GetObject("btnUp.Image")));
+            this.btnUp.Location = new System.Drawing.Point(40, 99);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(28, 33);
+            this.btnUp.Size = new System.Drawing.Size(37, 33);
             this.btnUp.TabIndex = 4;
-            this.btnUp.Text = "U";
-            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             this.btnUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnUp_MouseDown);
             this.btnUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnUp_MouseUp);
             // 
             // btnLeft
             // 
-            this.btnLeft.Location = new System.Drawing.Point(12, 134);
+            this.btnLeft.Image = ((System.Drawing.Image)(resources.GetObject("btnLeft.Image")));
+            this.btnLeft.Location = new System.Drawing.Point(3, 134);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(28, 33);
+            this.btnLeft.Size = new System.Drawing.Size(37, 33);
             this.btnLeft.TabIndex = 5;
-            this.btnLeft.Text = "L";
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnLeft_MouseDown);
             this.btnLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnLeft_MouseUp);
             // 
             // btnDown
             // 
-            this.btnDown.Location = new System.Drawing.Point(46, 168);
+            this.btnDown.Image = ((System.Drawing.Image)(resources.GetObject("btnDown.Image")));
+            this.btnDown.Location = new System.Drawing.Point(40, 168);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(28, 33);
+            this.btnDown.Size = new System.Drawing.Size(37, 33);
             this.btnDown.TabIndex = 6;
-            this.btnDown.Text = "D";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             this.btnDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDown_MouseDown);
             this.btnDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDown_MouseUp);
             // 
             // btnRight
             // 
-            this.btnRight.Location = new System.Drawing.Point(80, 134);
+            this.btnRight.Image = ((System.Drawing.Image)(resources.GetObject("btnRight.Image")));
+            this.btnRight.Location = new System.Drawing.Point(77, 134);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(28, 33);
+            this.btnRight.Size = new System.Drawing.Size(37, 33);
             this.btnRight.TabIndex = 7;
-            this.btnRight.Text = "R";
             this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             this.btnRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnRight_MouseDown);
             this.btnRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnRight_MouseUp);
             // 
             // btnUpLeft
             // 
-            this.btnUpLeft.Location = new System.Drawing.Point(12, 99);
+            this.btnUpLeft.Location = new System.Drawing.Point(3, 99);
             this.btnUpLeft.Name = "btnUpLeft";
-            this.btnUpLeft.Size = new System.Drawing.Size(28, 33);
+            this.btnUpLeft.Size = new System.Drawing.Size(37, 33);
             this.btnUpLeft.TabIndex = 8;
             this.btnUpLeft.UseVisualStyleBackColor = true;
             this.btnUpLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnUpLeft_MouseDown);
@@ -141,27 +147,33 @@
             // 
             // btnDownLeft
             // 
-            this.btnDownLeft.Location = new System.Drawing.Point(12, 168);
+            this.btnDownLeft.Location = new System.Drawing.Point(3, 168);
             this.btnDownLeft.Name = "btnDownLeft";
-            this.btnDownLeft.Size = new System.Drawing.Size(28, 33);
+            this.btnDownLeft.Size = new System.Drawing.Size(37, 33);
             this.btnDownLeft.TabIndex = 9;
             this.btnDownLeft.UseVisualStyleBackColor = true;
+            this.btnDownLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDownLeft_MouseDown);
+            this.btnDownLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDownLeft_MouseUp);
             // 
             // btnDownRight
             // 
-            this.btnDownRight.Location = new System.Drawing.Point(80, 168);
+            this.btnDownRight.Location = new System.Drawing.Point(77, 168);
             this.btnDownRight.Name = "btnDownRight";
-            this.btnDownRight.Size = new System.Drawing.Size(28, 33);
+            this.btnDownRight.Size = new System.Drawing.Size(37, 33);
             this.btnDownRight.TabIndex = 10;
             this.btnDownRight.UseVisualStyleBackColor = true;
+            this.btnDownRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDownRight_MouseDown);
+            this.btnDownRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDownRight_MouseUp);
             // 
             // btnUpRight
             // 
-            this.btnUpRight.Location = new System.Drawing.Point(80, 99);
+            this.btnUpRight.Location = new System.Drawing.Point(77, 99);
             this.btnUpRight.Name = "btnUpRight";
-            this.btnUpRight.Size = new System.Drawing.Size(28, 33);
+            this.btnUpRight.Size = new System.Drawing.Size(37, 33);
             this.btnUpRight.TabIndex = 11;
             this.btnUpRight.UseVisualStyleBackColor = true;
+            this.btnUpRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnUpRight_MouseDown);
+            this.btnUpRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnUpRight_MouseUp);
             // 
             // MainForm
             // 
@@ -183,6 +195,7 @@
             this.Name = "MainForm";
             this.Text = "IPCam";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.ResumeLayout(false);
 
