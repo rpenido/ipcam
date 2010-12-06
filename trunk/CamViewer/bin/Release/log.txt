@@ -1,0 +1,8 @@
+[24/11/10 01:37:48] (1) Start session
+[24/11/10 01:37:48] (1) Config file not found !
+[24/11/10 01:37:48] (1) Creating camera controller..
+[24/11/10 01:37:48] (1) Creating work thread..
+[24/11/10 01:37:48] (1) Starting work thread..
+[24/11/10 01:37:48] (3) Work thread started !
+[24/11/10 01:37:51] (1) Stopping work thread..
+[24/11/10 01:37:51] (1) Work thread stopped..
