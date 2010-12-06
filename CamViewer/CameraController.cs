@@ -153,13 +153,6 @@ namespace CamViewer
             setCommand("/decoder_control.cgi?command=" + MOVE_DOWN);
         }
 
-        public void MoveDown(int time)
-        {
-            MoveDown();
-            setDelay(time);
-            StopMoveDown();
-        }
-
         public void StopMoveDown()
         {
             setCommand("/decoder_control.cgi?command=" + STOP_MOVE_DOWN);

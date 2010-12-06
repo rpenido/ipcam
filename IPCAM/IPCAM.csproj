@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CamView</RootNamespace>
     <AssemblyName>IPCAM</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -87,7 +87,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -112,6 +111,7 @@
     </Compile>
     <Compile Include="ConnectionConfigData.cs" />
     <Compile Include="ConnectionConfigDataList.cs" />
+    <Compile Include="FOSCAMController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +119,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="IPanTiltController.cs" />
+    <Compile Include="IPresetController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SonyController.cs" />
+    <Compile Include="IZoomController.cs" />
     <EmbeddedResource Include="ConfigCameraListForm.resx">
       <DependentUpon>ConfigCameraListForm.cs</DependentUpon>
     </EmbeddedResource>

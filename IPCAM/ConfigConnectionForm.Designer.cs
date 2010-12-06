@@ -164,7 +164,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigConnectionForm";
-            this.Text = "IP CAM BETA V 0.1 - CONFIGURAÇÕES";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);

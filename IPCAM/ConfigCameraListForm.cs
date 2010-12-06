@@ -20,7 +20,7 @@ namespace CamViewer
 
             for (int i = 0; i < list.Count; i++ )
             {
-                listView1.Items.Add("C^amera " + i.ToString());
+                listView1.Items.Add("Câmera " + i.ToString());
             }
             
         }
@@ -39,7 +39,7 @@ namespace CamViewer
        {
            if (listView1.SelectedIndices.Count != 1)
            {
-               MessageBox.Show("Selecione uma c^amera");
+               MessageBox.Show("Selecione uma câmera");
                return;
            }
 
