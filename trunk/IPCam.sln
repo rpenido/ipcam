@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamViewer", "CamViewer\CamViewer.csproj", "{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamRecorder", "CamRecorder\CamRecorder.csproj", "{642EEBA3-0050-41AD-9013-BCED188E75FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPCAM", "IPCAM\IPCAM.csproj", "{3D9FF305-7C84-44DA-847F-A880D7E731DB}"
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Debug|x86.ActiveCfg = Debug|X86
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Debug|x86.Build.0 = Debug|X86
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|x86.ActiveCfg = Release|X86
-		{AA7F2BE7-8AFD-4A0E-ADB3-D80BD2FCCED9}.Release|x86.Build.0 = Release|X86
 		{642EEBA3-0050-41AD-9013-BCED188E75FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{642EEBA3-0050-41AD-9013-BCED188E75FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{642EEBA3-0050-41AD-9013-BCED188E75FD}.Debug|x86.ActiveCfg = Debug|X86

@@ -99,7 +99,7 @@ namespace CamViewer
 
         private void btnUp_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            camController.StopMoveUp();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -116,21 +116,24 @@ namespace CamViewer
         {
             camController.MoveLeft();
         }
-        
-        private void btnDown_MouseUp(object sender, MouseEventArgs e)
+
+        private void btnRight_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            camController.StopMoveLeft();
         }
 
+        
         private void btnDown_MouseDown(object sender, MouseEventArgs e)
         {
             camController.MoveUp();           
         }
 
-        private void btnRight_MouseUp(object sender, MouseEventArgs e)
+        private void btnDown_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();            
+            camController.StopMoveUp();
         }
+
+
 
         private void btnLeft_MouseDown(object sender, MouseEventArgs e)
         {
@@ -139,7 +142,7 @@ namespace CamViewer
 
         private void btnLeft_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            camController.StopMoveRight();
         }
 
 
@@ -157,42 +160,42 @@ namespace CamViewer
 
         private void btnUpLeft_MouseDown(object sender, MouseEventArgs e)
         {
-            camController.MoveUpLeft();
+            //camController.MoveUpLeft();
         }
 
         private void btnUpLeft_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            //camController.StopMove();
         }
 
         private void btnUpRight_MouseDown(object sender, MouseEventArgs e)
         {
-            camController.MoveUpRight();
+            //camController.MoveUpRight();
         }
 
         private void btnUpRight_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            //camController.StopMove();
         }
 
         private void btnDownRight_MouseDown(object sender, MouseEventArgs e)
         {
-            camController.MoveDownRight();
+            //camController.MoveDownRight();
         }
 
         private void btnDownRight_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            //camController.StopMove();
         }
 
         private void btnDownLeft_MouseDown(object sender, MouseEventArgs e)
         {
-            camController.MoveDownLeft();
+            //camController.MoveDownLeft();
         }
 
         private void btnDownLeft_MouseUp(object sender, MouseEventArgs e)
         {
-            camController.StopMove();
+            //camController.StopMove();
         }
 
         private void btnUp_Click(object sender, EventArgs e)
