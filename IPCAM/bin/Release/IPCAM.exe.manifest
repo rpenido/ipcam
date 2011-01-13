@@ -9,7 +9,7 @@
   <trustInfo>
     <security>
       <applicationRequestMinimum>
-        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <PermissionSet class="System.Security.PermissionSet" version="1" ID="Custom" SameSite="site" Unrestricted="true" />
         <defaultAssemblyRequest permissionSetReference="Custom" />
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -141,14 +141,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IPCAM.exe" size="69632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IPCAM.exe" size="70144">
       <assemblyIdentity name="IPCAM" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>iQOs8LSZmHXNLW0i9MvqdczQidA=</dsig:DigestValue>
+        <dsig:DigestValue>PAgqcTWSuBIuBe4seuB7TbyO5/M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

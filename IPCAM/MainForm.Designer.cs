@@ -50,7 +50,7 @@
             this.lbltime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             this.btndesconect = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
             this.videoSourcePlayer2 = new AForge.Controls.VideoSourcePlayer();
@@ -260,15 +260,15 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // button1
+            // btnView
             // 
-            this.button1.Location = new System.Drawing.Point(13, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 33);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Visualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnView.Location = new System.Drawing.Point(13, 321);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(115, 33);
+            this.btnView.TabIndex = 12;
+            this.btnView.Text = "Visualizar";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btndesconect
             // 
@@ -357,7 +357,7 @@
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btndesconect);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -390,7 +390,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label lbltime;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btndesconect;
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.TextBox lblPath;
