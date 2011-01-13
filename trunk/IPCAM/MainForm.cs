@@ -10,6 +10,7 @@ using AForge.Video;
 using AForge.Vision.Motion;
 using System.Threading;
 using AForge.Video.VFW;
+using AForge.Controls;
 
 namespace CamViewer
 {
@@ -18,6 +19,9 @@ namespace CamViewer
 
         MJPEGStream stream;
         MJPEGStream stream2;
+        MJPEGStream stream3;
+        MJPEGStream stream4;
+        MJPEGStream stream5;
         ConnectionConfigDataList conf;
         IPanTiltController camController;
         MotionDetector motionDetector;
@@ -119,9 +123,9 @@ namespace CamViewer
             {
                 button2_Click_1(this, null);
             }
-            else if (WindowState != FormWindowState.Minimized && button1.Enabled)
+            else if (WindowState != FormWindowState.Minimized && btnView.Enabled)
             {
-                button1_Click_1(this, null);
+                btnView_Click(this, null);
             }
         }
 
@@ -172,24 +176,34 @@ namespace CamViewer
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnView_Click(object sender, EventArgs e)
         {
             
             stream = new MJPEGStream("http://"+conf[0].Address + "/videostream.cgi");
             stream.NewFrame += videoSource_NewFrame;
             stream.Login = conf[0].UserName;
             stream.Password = conf[0].Password;
+            if (conf.Count > 1)
+            {
+                stream2 = new MJPEGStream("http://" + conf[1].Address + "/videostream.cgi");
+                //stream2.NewFrame += videoSource_NewFrame;
+                stream2.Login = conf[1].UserName;
+                stream2.Password = conf[1].Password;
 
-            stream2 = new MJPEGStream("http://" + conf[1].Address + "/videostream.cgi");
-            //stream2.NewFrame += videoSource_NewFrame;
-            stream2.Login = conf[1].UserName;
-            stream2.Password = conf[1].Password;
+                videoSourcePlayer2.VideoSource = stream2;
+            }
+            if (conf.Count > 2)
+            {
+                stream3 = new MJPEGStream("http://" + conf[2].Address + "/videostream.cgi");
+                //stream2.NewFrame += videoSource_NewFrame;
+                stream3.Login = conf[2].UserName;
+                stream3.Password = conf[2].Password;
 
-            videoSourcePlayer2.VideoSource = stream2;
-            
+                videoSourcePlayer3.VideoSource = stream3;
+            }
 
 
-            button1.Enabled = false;
+            btnView.Enabled = false;
             btndesconect.Enabled = true;
             btnConfig.Enabled = false;
             btnRecoder.Enabled = true;
@@ -210,7 +224,7 @@ namespace CamViewer
             stream2.Stop();            
             videoSourcePlayer1.VideoSource = null;
             videoSourcePlayer2.VideoSource = null;            
-            button1.Enabled = true;            
+            btnView.Enabled = true;            
             btndesconect.Enabled = false;
             btnConfig.Enabled = true;
             btnRecoder.Enabled = false;
@@ -317,7 +331,9 @@ namespace CamViewer
 
         private void videoSourcePlayer2_Click(object sender, EventArgs e)
         {
-            videoSourcePlayer1.VideoSource = stream2;
+            VideoSourcePlayer player = sender as VideoSourcePlayer;
+            IVideoSource oldSource = player.VideoSource;
+            videoSourcePlayer1.VideoSource = player.VideoSource;
             videoSourcePlayer2.VideoSource = stream;
         }
 
